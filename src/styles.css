@@ -1,0 +1,42 @@
+h1 {
+    text-align: center;
+    margin-top: 20%
+}
+
+div {
+    float: left;
+    border: 3px solid pink
+}
+
+div.main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+div.start {
+    position: absolute;
+    top: 50px;
+    left: 200px;
+}
+
+div>* {
+    display: block
+}
+
+button {
+    height: 80px;
+    width: 80px;
+}
+
+button>img {
+    height: 80%;
+    width: 80%;
+    padding: 0;
+    margin: 0;
+}
+
+input {
+    width: 80px;
+}

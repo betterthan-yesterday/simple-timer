@@ -9,27 +9,29 @@
     </head>
     <body>
         <h1>Simple Timer</h1>
-        <div id="incButton">
-            <button type="submit">
-                <img src="../images/incBut.png">
-            </button>
-            <button type="submit">
-                <img src="../images/incBut.png">
-            </button>
+        <div class="main">
+            <div class="minutes">
+                <button class="inc">
+                    <img src="../images/incBut.png">
+                </button>
+                <input type="text" id="minutes" value="00">
+                <button class="dec">
+                    <img src="../images/decBut.png">
+                </button>
+            </div>
+            <div class="seconds">
+                <button class="inc">
+                    <img src="../images/incBut.png">
+                </button>
+                <input type="text" id="seconds" value="00">
+                <button class="dec">
+                    <img src="../images/decBut.png">
+                </button>
+            </div>
         </div>
-        <div id="input">
-            <input type="text" id="minutes" value="00">:
-            <input type="text" id="seconds" value="00">
+        <div class="start">
+            <button>Start</button>
         </div>
-        <div id="decButton">
-            <button>
-                <img src="../images/decBut.png">
-            </button>
-            <button>
-                <img src="../images/decBut.png">
-            </button>
-        </div>
-
         <script src="script.js"></script>
     </body>
 </html>
