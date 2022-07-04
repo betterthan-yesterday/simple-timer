@@ -1,35 +1,41 @@
+* {
+    font-family: Verdana;
+    background-color: yellow;
+    box-sizing: border-box;
+}
+
 body {
-    display: grid;
-    justify-content: center;
-    align-items: stretch;
-    grid-auto-flow: column;
-    height: 100px;
-}
-
-h1 {
-    text-align: center;
-    margin-top: 200px;
-}
-
-div {
-    border: 3px solid pink
+    margin: 0;
 }
 
 div.main {
-    display: flex;
-    height: 100%;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    height: 100vh;
+    align-content: center;
     justify-content: center;
+    align-items: center;
+    z-index: 0;
 }
 
-div.start {
+h1 {
     position: absolute;
-    top: 50px;
-    left: 200px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 1;
 }
 
-div>* {
-    display: block
+button#start {
+    position: absolute;
+    left: 50%;
+    top: 600px;
+    transform: translate(-50%, 0);
+}
+
+.controls>* {
+    display: block;
+    margin: auto;
+    font-size: xx-large;
 }
 
 button {
@@ -44,4 +50,13 @@ button>img {
 
 input {
     width: 80px;
+    text-align: center;
+}
+
+button:hover img, button:hover {
+    background-color: rgb(230, 230, 0);
+}
+
+p {
+    font-size: 30px;
 }

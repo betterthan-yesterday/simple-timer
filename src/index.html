@@ -8,30 +8,39 @@
         <script src="script.js"></script>
     </head>
     <body>
-        <!-- <h1>Simple Timer</h1> -->
+        <h1>Simple Timer</h1>
         <div class="main">
-            <div class="minutes">
+            <div class="controls" id="hours">
                 <button class="inc">
                     <img src="../images/incBut.png">
                 </button>
-                <input type="text" id="minutes" value="00">
+                <input type="text" id="minutes" value="00h">
                 <button class="dec">
                     <img src="../images/decBut.png">
                 </button>
             </div>
-            <div class="seconds">
+            <p>:</p>
+            <div class="controls" id="minutes">
                 <button class="inc">
                     <img src="../images/incBut.png">
                 </button>
-                <input type="text" id="seconds" value="00">
+                <input type="text" id="minutes" value="00m">
                 <button class="dec">
                     <img src="../images/decBut.png">
                 </button>
             </div>
-        </div>
-        <!-- <div class="start">
-            <button>Start</button>
-        </div> -->
+            <p>:</p>
+            <div class="controls" id="seconds">
+                <button class="inc">
+                    <img src="../images/incBut.png">
+                </button>
+                <input type="text" id="seconds" value="00s">
+                <button class="dec">
+                    <img src="../images/decBut.png">
+                </button>
+            </div>
+        <button id="start">Start</button>
+        
         <script src="script.js"></script>
     </body>
 </html>
