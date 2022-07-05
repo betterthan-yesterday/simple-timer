@@ -11,34 +11,37 @@
         <h1>Simple Timer</h1>
         <div class="main">
             <div class="controls" id="hours">
-                <button class="inc">
+                <button class="inc" id="hour-inc">
                     <img src="../images/incBut.png">
                 </button>
-                <input type="text" id="minutes" value="00h">
-                <button class="dec">
+                <input type="text" id="hours" value="00">
+                <button class="dec" id="hour-dec">
                     <img src="../images/decBut.png">
                 </button>
             </div>
-            <p>:</p>
+            <p>h</p>
+            <p id="hour-c">:</p>
             <div class="controls" id="minutes">
-                <button class="inc">
+                <button class="inc" id="min-inc">
                     <img src="../images/incBut.png">
                 </button>
-                <input type="text" id="minutes" value="00m">
-                <button class="dec">
+                <input type="text" id="minutes" value="00">
+                <button class="dec" id="min-dec">
                     <img src="../images/decBut.png">
                 </button>
             </div>
-            <p>:</p>
+            <p>m</p>
+            <p id="min-c">:</p>
             <div class="controls" id="seconds">
-                <button class="inc">
+                <button class="inc" id="sec-inc">
                     <img src="../images/incBut.png">
                 </button>
-                <input type="text" id="seconds" value="00s">
-                <button class="dec">
+                <input type="text" id="seconds" value="00">
+                <button class="dec" id="sec-dec">
                     <img src="../images/decBut.png">
                 </button>
             </div>
+            <p>s</p>
         <button id="start">Start</button>
         
         <script src="script.js"></script>

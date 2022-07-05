@@ -10,7 +10,7 @@ body {
 
 div.main {
     display: grid;
-    grid-template-columns: repeat(5, auto);
+    grid-template-columns: repeat(8, auto);
     height: 100vh;
     align-content: center;
     justify-content: center;
@@ -59,4 +59,12 @@ button:hover img, button:hover {
 
 p {
     font-size: 30px;
+}
+
+p#hour-c {
+    margin: 0 40px 0 21.02px;
+}
+
+p#min-c {
+    margin: 0 40px 0 10.81px
 }
