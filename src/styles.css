@@ -57,6 +57,15 @@ button:hover img, button:hover {
     background-color: rgb(230, 230, 0);
 }
 
+.clicked {
+    background-color: mediumpurple;
+    color: white;
+}
+
+.clicked:hover {
+    background-color: rgb(116, 89, 170);
+}
+
 p {
     font-size: 30px;
 }

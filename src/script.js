@@ -1,6 +1,7 @@
 "use strict";
 
 var start = false;
+var running = false;
 
 window.onload = function() {
     
@@ -41,7 +42,7 @@ window.onload = function() {
     });
 
     startBtn.addEventListener("click", () => {
-        startTimer(hourBox, minBox, secBox);
+        startTimer(hourBox, minBox, secBox, startBtn);
     });
 
 }
@@ -58,42 +59,52 @@ function decOne(text) {
     }
 }
 
-function startTimer(hBox, mBox, sBox) {
+function startTimer(hBox, mBox, sBox, button) {
     
     start = !start;
+
+    button.innerText = (start) ? "Pause" : "Start";
+    button.className = (start) ? "clicked" : "start";
 
     let hour = hBox.getAttribute("value");
     let min = mBox.getAttribute("value");
     let sec = sBox.getAttribute("value");
 
-    updateTimer(hour, min, sec, arguments);
-    let timerId = setTimeout(updateTimer, 0, hour, min, sec, arguments);
+    if (!running) {
+        console.log("really?")
+        updateTimer(hour, min, sec, arguments);
+        setTimeout(updateTimer, 0, hour, min, sec, arguments);
+    }
+
+    running = true;
 }
 
-function updateTimer(hour, min, sec, args, timerId = null) {
+function updateTimer(hour, min, sec, args) {
 
-    if (sec == "00") {
-        if (!+min) {
-            if (!+hour) {
-                clearTimeout(timerId)
-                console.log("done");
+    if (start) {
+        if (sec == "00") {
+            if (!+min) {
+                if (!+hour) {
+                    clearTimeout(timerId)
+                    console.log("done");
+                } else {
+                    hour = "0" + (+hour - 1);
+                    min = "59";
+                    sec = "59";
+                }
             } else {
-                hour = "0" + (+hour - 1);
-                min = "59";
+                min = "0" + (+min - 1);
                 sec = "59";
             }
         } else {
-            min = "0" + (+min - 1);
-            sec = "59";
+            sec = "0" + (+sec - 1);
         }
-    } else {
-        sec = "0" + (+sec - 1);
     }
-
+    
     args[0].setAttribute("value", hour.slice(-2));
     args[1].setAttribute("value", min.slice(-2));
     args[2].setAttribute("value", sec.slice(-2));
 
-    timerId = setTimeout(updateTimer, 1000, hour, min, sec, args, timerId)
+    setTimeout(updateTimer, 1000, hour, min, sec, args)
 
 }
