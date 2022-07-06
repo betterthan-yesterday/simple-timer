@@ -20,16 +20,20 @@ div.main {
 
 h1 {
     position: absolute;
-    left: 50%;
+    left: 49%;
     transform: translate(-50%, 0);
     z-index: 1;
 }
 
-button#start {
+.menu {
     position: absolute;
-    left: 50%;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    width: 200px;
+    left: 49%;
     top: 600px;
     transform: translate(-50%, 0);
+    justify-content: space-between;
 }
 
 .controls>* {
@@ -46,6 +50,7 @@ button {
 button>img {
     height: 80%;
     width: 80%;
+    border: 0;
 }
 
 input {

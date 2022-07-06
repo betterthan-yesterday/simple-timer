@@ -11,7 +11,9 @@ window.onload = function() {
     const decMin = document.getElementById("min-dec");
     const incSec = document.getElementById("sec-inc");
     const decSec = document.getElementById("sec-dec");
+
     const startBtn = document.getElementById("start");
+    const resetBtn = document.getElementById("reset");
 
     const hourBox = document.getElementById("hours");
     const minBox = document.getElementById("minutes");
@@ -43,6 +45,10 @@ window.onload = function() {
 
     startBtn.addEventListener("click", () => {
         startTimer(hourBox, minBox, secBox, startBtn);
+    });
+
+    resetBtn.addEventListener("click", () => {
+        window.location.reload();
     });
 
 }
