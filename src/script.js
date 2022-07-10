@@ -55,7 +55,9 @@ window.onload = function() {
 
 function incOne(text) {
     let current = text.getAttribute("value");
-    text.setAttribute("value", ("0" + (+current + 1)).slice(-2));
+    if ((current < 60) || (text.getAttribute("id") == "hours")) {
+        text.setAttribute("value", ("0" + (+current + 1)).slice(-2));
+    }
 }
 
 function decOne(text) {
@@ -72,26 +74,25 @@ function startTimer(hBox, mBox, sBox, button) {
     button.innerText = (start) ? "Pause" : "Start";
     button.className = (start) ? "clicked" : "start";
 
-    let hour = hBox.getAttribute("value");
-    let min = mBox.getAttribute("value");
-    let sec = sBox.getAttribute("value");
-
     if (!running) {
-        console.log("really?")
-        updateTimer(hour, min, sec, arguments);
-        setTimeout(updateTimer, 0, hour, min, sec, arguments);
+        updateTimer(arguments);
     }
 
     running = true;
+
 }
 
-function updateTimer(hour, min, sec, args) {
+function updateTimer(args) {
+
+    let hour = args[0].value;
+    let min =  args[1].value;
+    let sec =  args[2].value;
 
     if (start) {
         if (sec == "00") {
             if (!+min) {
                 if (!+hour) {
-                    clearTimeout(timerId)
+                    updateTimer = function(){}
                     console.log("done");
                 } else {
                     hour = "0" + (+hour - 1);
@@ -106,11 +107,13 @@ function updateTimer(hour, min, sec, args) {
             sec = "0" + (+sec - 1);
         }
     }
-    
-    args[0].setAttribute("value", hour.slice(-2));
-    args[1].setAttribute("value", min.slice(-2));
-    args[2].setAttribute("value", sec.slice(-2));
 
-    setTimeout(updateTimer, 1000, hour, min, sec, args)
+    console.log(hour, min, sec)
+    
+    args[0].value = hour.slice(-2);
+    args[1].value = min.slice(-2);
+    args[2].value = sec.slice(-2);
+
+    setTimeout(updateTimer, 1000, args)
 
 }
