@@ -54,17 +54,21 @@ window.onload = function() {
 }
 
 function incOne(text) {
+    
     let current = text.getAttribute("value");
     if ((current < 60) || (text.getAttribute("id") == "hours")) {
         text.setAttribute("value", ("0" + (+current + 1)).slice(-2));
     }
+
 }
 
 function decOne(text) {
+
     let current = text.getAttribute("value");
     if (+current) {
         text.setAttribute("value", ("0" + (+current - 1)).slice(-2));
     }
+
 }
 
 function startTimer(hBox, mBox, sBox, button) {
@@ -92,8 +96,9 @@ function updateTimer(args) {
         if (sec == "00") {
             if (!+min) {
                 if (!+hour) {
-                    updateTimer = function(){}
-                    console.log("done");
+                    updateTimer = function(){
+                        playSound();
+                    }
                 } else {
                     hour = "0" + (+hour - 1);
                     min = "59";
@@ -116,4 +121,10 @@ function updateTimer(args) {
 
     setTimeout(updateTimer, 1000, args)
 
+}
+
+function playSound() {
+    const audio = new Audio("../audio/audio.wav");
+    audio.loop = true;
+    audio.play();
 }
